@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1., user-scalable=no">
+<style>
+body {
+ margin: 0;
+ font-family: serif, Arial, Helvetica, sans-serif;
+ width:100%;
+ overflow-x:hidden;
+}
+
+a { text-decoration:none }
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body link='black' vlink='black' alink='red'>
+<!--글자 크기 조정-->
+<button id="1" onclick="font_size_step(this.id)" type="button" style="float:right; width:auto; height:auto; position: absolute; right: 20px; top: 20px">글씨 크게</button>
+<button id="-1" onclick="font_size_step(this.id)" type="button" style="float:right; width:auto; height:auto; position: absolute; left: 20px; top: 20px">글씨 작게</button></br><p>
+</br>
+<hr width="100%" color="grey" noshade/>
+
+<div id="main">
+<center><h2>전지적 독자 시점</h2></center>
+
+<table>
+  <tr>
+    <th><center>회</center></th>
+    <th><center>제목</center></th>
+  </tr>
+  <tr>
+    <td><center>5</center></td>
+    <td><a href="5.html">Episode 1. 유료 서비스 시작 (4)</a></td>
+  </tr>
+  <tr>
+    <td><center>4</center></td>
+    <td><a href="4.html">Episode 1. 유료 서비스 시작 (3)</a></td>
+  </tr>
+  <tr>
+    <td><center>3</center></td>
+    <td><a href="3.html">Episode 1. 유료 서비스 시작 (2)</a></td>
+  </tr>
+  <tr>
+    <td><center>2</center></td>
+    <td><a href="2.html">Episode 1. 유료 서비스 시작 (1)</a></td>
+  </tr>
+  <tr>
+    <td><center>1</center></td>
+    <td><a href="1.html">Prologue. 멸망한 세계에서 살아남는 세 가지 방법</a></td>
+  </tr>
+   </span>
+</table>
+</div>
+<script>
+if (localStorage.getItem("font")){
+
+}else{
+  localStorage.font = '19';
+  localStorage.step = '3';
+}
+
+//초기 글씨 크기 정보 가져오기
+var font_size_index = parseInt(localStorage.getItem("step"));
+switch (font_size_index) {
+case 5:
+  document.getElementById('main').style.fontSize=25+"px";
+  localStorage.setItem("font", "25");
+  localStorage.setItem("step", "5");
+  break;
+case 4:
+  document.getElementById('main').style.fontSize=22+"px";
+  localStorage.setItem("font", "22");
+  localStorage.setItem("step", "4");
+  break;
+case 3:
+  document.getElementById('main').style.fontSize=19+"px";
+  localStorage.setItem("font", "19");
+  localStorage.setItem("step", "3");
+  break;
+case 2:
+  document.getElementById('main').style.fontSize=16+"px";
+  localStorage.setItem("font", "16");
+  localStorage.setItem("step", "2");
+  break;
+case 1:
+  document.getElementById('main').style.fontSize=13+"px";
+  localStorage.setItem("font", "13");
+  localStorage.setItem("step", "1");
+  break;
+default:
+  if(font_size_index >= 5){
+    font_size_index = 5
+    document.getElementById('main').style.fontSize=25+"px";
+    localStorage.setItem("font", "25");
+    localStorage.setItem("step", "5");
+  }else if(font_size_index <= 0){
+    font_size_index = 1
+    document.getElementById('main').style.fontSize=13+"px";
+    localStorage.setItem("font", "13");
+    localStorage.setItem("step", "1");
+  }
+}
+
+//글씨 크기 조정 관련 인덱스 설정
+function font_size_step(value){
+  var num = parseInt(value);
+  font_size_index = font_size_index + num;
+  console.log(font_size_index);
+  switch (font_size_index) {
+  case 5:
+    document.getElementById('main').style.fontSize=25+"px";
+    localStorage.setItem("font", "25");
+    localStorage.setItem("step", "5");
+    break;
+  case 4:
+    document.getElementById('main').style.fontSize=22+"px";
+    localStorage.setItem("font", "22");
+    localStorage.setItem("step", "4");
+    break;
+  case 3:
+    document.getElementById('main').style.fontSize=19+"px";
+    localStorage.setItem("font", "19");
+    localStorage.setItem("step", "3");
+    break;
+  case 2:
+    document.getElementById('main').style.fontSize=16+"px";
+    localStorage.setItem("font", "16");
+    localStorage.setItem("step", "2");
+    break;
+  case 1:
+    document.getElementById('main').style.fontSize=13+"px";
+    localStorage.setItem("font", "13");
+    localStorage.setItem("step", "1");
+    break;
+  default:
+    if(font_size_index >= 5){
+      font_size_index = 5
+      document.getElementById('main').style.fontSize=25+"px";
+      localStorage.setItem("font", "25");
+      localStorage.setItem("step", "5");
+    }else if(font_size_index <= 0){
+      font_size_index = 1
+      document.getElementById('main').style.fontSize=13+"px";
+      localStorage.setItem("font", "13");
+      localStorage.setItem("step", "1");
+    }
+}
+}
+
+</script>
+</body>
+</html>

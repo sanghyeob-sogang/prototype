@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1., user-scalable=no">
+  <title>끝</title>
+<style>
+body {
+ margin: 0;
+ font-family: serif, Arial, Helvetica, sans-serif;
+ width:100%;
+ overflow-x:hidden;
+}
+
+.navbar {
+  text-align: center;
+  overflow: hidden;
+  background-color: #000000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  display:inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: #000000;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+}
+</style>
+</head>
+<body>
+<!--하단 메뉴창-->
+<div class="navbar">
+  <a href="main.html">다시 보기</a>
+</div>
+
+<!--본문-->
+<div class="main" id="main">
+ <center>감상이 완료되었습니다.</br>
+ 설문으로 돌아가주세요.<p></br></br></br></br><center>
+
+</p>
+</div>
+<script type="text/javascript">
+//초기 글씨 크기 정보 가져오기
+var font_size_index = parseInt(localStorage.getItem("step"));
+switch (font_size_index) {
+case 5:
+  document.getElementById('main').style.fontSize=32+"px";
+  localStorage.setItem("font", "32");
+  localStorage.setItem("step", "5");
+  break;
+case 4:
+  document.getElementById('main').style.fontSize=28+"px";
+  localStorage.setItem("font", "28");
+  localStorage.setItem("step", "4");
+  break;
+case 3:
+  document.getElementById('main').style.fontSize=24+"px";
+  localStorage.setItem("font", "24");
+  localStorage.setItem("step", "3");
+  break;
+case 2:
+  document.getElementById('main').style.fontSize=20+"px";
+  localStorage.setItem("font", "20");
+  localStorage.setItem("step", "2");
+  break;
+case 1:
+  document.getElementById('main').style.fontSize=16+"px";
+  localStorage.setItem("font", "16");
+  localStorage.setItem("step", "1");
+  break;
+default:
+  if(font_size_index >= 5){
+    font_size_index = 5
+    document.getElementById('main').style.fontSize=32+"px";
+    localStorage.setItem("font", "32");
+    localStorage.setItem("step", "5");
+  }else if(font_size_index <= 0){
+    font_size_index = 1
+    document.getElementById('main').style.fontSize=16+"px";
+    localStorage.setItem("font", "16");
+    localStorage.setItem("step", "1");
+  }
+}
+
+</script>
+</body>
+</html>
